@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dr. Nature - Innovating Preventive Health</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "dark-green": "#021a0b",
+              "neon-green": "#4ade80",
+              "glass-bg": "rgba(255, 255, 255, 0.05)",
+              "glass-border": "rgba(255, 255, 255, 0.1)",
+            },
+            fontFamily: {
+              sans: ["Cairo", "sans-serif"],
+            },
+            screens: {
+              xs: "470px",
+              sm: "640px",
+              md: "768px",
+              lg: "1024px",
+              xl: "1280px",
+              "2xl": "1536px",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 80px;
+      }
+
+      body {
+        background-color: #011105;
+        color: white;
+        overflow-x: hidden;
+      }
+
+      .glow-bg {
+        position: absolute;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(
+          circle,
+          rgba(74, 222, 128, 0.15) 0%,
+          rgba(0, 0, 0, 0) 70%
+        );
+        border-radius: 50%;
+        z-index: -1;
+        pointer-events: none;
+      }
+
+      .hero-gradient {
+        background: linear-gradient(
+          180deg,
+          rgba(0, 23, 6, 0.17) 0%,
+          rgba(0, 23, 6, 1) 100%
+        );
+      }
+
+      .hero-overlay {
+        background: linear-gradient(
+          180deg,
+          rgba(0, 23, 6, 0.46) 0%,
+          rgba(0, 23, 6, 0) 50%,
+          rgba(0, 23, 6, 1) 100%
+        );
+      }
+
+      /* تأثير الانحناء البسيط */
+      .product-bottle-curved {
+        filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.5));
+        transform: perspective(1000px) rotateY(-5deg) rotateX(2deg);
+        transition: transform 0.5s ease;
+      }
+
+      .product-bottle-curved:hover {
+        transform: perspective(1000px) rotateY(-3deg) rotateX(1deg) scale(1.02);
+      }
+    </style>
+  </head>
+
+  <body class="antialiased selection:bg-neon-green selection:text-black">
+    <!-- Navbar -->
+    <nav
+      class="fixed w-full z-50 top-0 transition-all duration-300 backdrop-blur-md border-b border-glass-border bg-transparent"
+    >
+      <div class="container mx-auto px-6 py-4">
+        <div class="flex justify-between items-center">
+          <!-- Logo -->
+          <a
+            href="#hero"
+            class="text-2xl font-bold text-white flex items-center gap-2 z-50"
+          >
+            <img title="logo" src="imgs/logo.png" class="w-10 h-10" />
+          </a>
+
+          <!-- Desktop Menu -->
+          <div class="hidden md:flex gap-8 text-gray-300 text-sm font-semibold">
+            <a href="#about" class="hover:text-neon-green transition"
+              >About Us</a
+            >
+            <a href="#endo-balance" class="hover:text-neon-green transition"
+              >Endo-Balance Hub</a
+            >
+            <a href="#products" class="hover:text-neon-green transition"
+              >Products</a
+            >
+            <a href="#team" class="hover:text-neon-green transition">Team</a>
+            <a href="#partners" class="hover:text-neon-green transition"
+              >Partners</a
+            >
+            <a href="#contact" class="hover:text-neon-green transition"
+              >Contact</a
+            >
+          </div>
+
+          <!-- Desktop Contact Button -->
+          <a
+            href="#contact"
+            class="hidden md:block bg-neon-green text-black px-6 py-2 rounded-full font-bold hover:bg-white transition shadow-[0_0_15px_rgba(74,222,128,0.5)]"
+          >
+            Contact
+          </a>
+
+          <!-- Mobile Menu Button -->
+          <button
+            title="bars"
+            id="mobile-menu-btn"
+            class="md:hidden text-white text-2xl focus:outline-none z-50"
+          >
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div
+          id="mobile-menu"
+          class="hidden absolute top-0 right-0 w-full h-screen bg-[#011105]/95 backdrop-blur-xl flex flex-col justify-center items-center gap-8 transition-all duration-300 md:hidden"
+        >
+          <a
+            href="#about"
+            class="text-2xl text-white hover:text-neon-green font-bold"
+            >About Us</a
+          >
+          <a
+            href="#endo-balance"
+            class="text-2xl text-white hover:text-neon-green font-bold"
+            >Endo-Balance Hub</a
+          >
+          <a
+            href="#products"
+            class="text-2xl text-white hover:text-neon-green font-bold"
+            >Products</a
+          >
+          <a
+            href="#team"
+            class="text-2xl text-white hover:text-neon-green font-bold"
+            >Team</a
+          >
+          <a
+            href="#partners"
+            class="text-2xl text-white hover:text-neon-green font-bold"
+            >Partners</a
+          >
+          <a
+            href="#contact"
+            class="text-2xl text-white hover:text-neon-green font-bold"
+            >Contact</a
+          >
+
+          <button
+            class="bg-neon-green text-black px-8 py-3 rounded-full font-bold text-xl hover:bg-white transition shadow-[0_0_15px_rgba(74,222,128,0.5)]"
+          >
+            Contact
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      id="hero"
+      class="relative min-h-screen w-full flex items-center justify-center overflow-hidden pt-20"
+      data-aos="fade-up"
+      data-aos-delay="100"
+    >
+      <div class="absolute inset-0 z-0">
+        <img
+          src="imgs/hero.png"
+          class="object-cover opacity-60 scale-105"
+          alt="Background"
+        />
+        <div class="absolute inset-0 hero-overlay"></div>
+      </div>
+
+      <div
+        class="container mx-auto px-6 relative z-10 flex flex-col items-center"
+      >
+        <div
+          class="w-full max-w-4xl bg-white/5 backdrop-blur-md border border-white/10 rounded-[40px] p-10 md:p-16 text-center relative shadow-2xl"
+        >
+          <img
+            src="imgs/dr.natura_01.png"
+            class="absolute w-[125px] xs:w-[150px] md:w-[200px] h-[150px] xs:h-[175px] md:h-[225px] rotate-[20deg] top-[315px] xs:top-[250px] sm:top-[200px] md:top-[250px] right-[-50px] xs:right-[-75px] md:right-[-100px] -right-24 -bottom-4 w-60 md:w-72 product-bottle-curved z-10"
+            alt="Dr. Natura Product"
+          />
+          <div
+            class="absolute hidden sm:block rotate-[270deg] w-[70px] md:w-[30px] top-[400px] md:top-[491px] right-[-50px] md:right-[-10px] h-[1.5px] bg-gradient-to-r from-white to-white/30 transform origin-left"
+          ></div>
+          <div
+            class="absolute hidden sm:block rotate-[180deg] w-[150px] top-[440px] sm:top-[400px] md:top-[490px] right-[-130px] h-[1.5px] bg-gradient-to-r from-white to-white/30 transform origin-left"
+          ></div>
+
+          <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">
+            Innovating <br />
+            <span class="text-white">Preventive Health</span>
+          </h1>
+
+          <p
+            class="text-gray-200 text-base md:text-lg max-w-xl mx-auto mb-8 leading-relaxed font-light"
+          >
+            We are more than just a company; we are a movement of awareness and
+            care. Redefining what it means to live well in a world of hidden
+            toxins.
+          </p>
+
+          <button
+            class="bg-neon-green text-black px-8 py-3 rounded-full font-bold text-base hover:bg-white hover:scale-105 transition duration-300 shadow-[0_10px_20px_rgba(74,222,128,0.3)]"
+          >
+            Contact Us
+          </button>
+        </div>
+
+        <!-- Information Boxes -->
+        <div
+          class="w-full max-w-4xl mt-10 flex flex-col-reverse md:flex-row justify-between items-center gap-6 px-4"
+        >
+          <!-- Discover Products Box -->
+          <div
+            class="group bg-[#021a0b]/60 backdrop-blur-lg border border-white/10 p-5 rounded-2xl w-full md:w-72 flex justify-between items-center hover:border-neon-green/50 transition cursor-pointer"
+          >
+            <div class="flex-1">
+              <h3 class="text-white font-semibold mb-2 text-base">
+                Discover our Products
+              </h3>
+              <p class="text-gray-400 text-xs leading-tight">
+                Preventive health solutions designed with nature and validated
+                by science.
+              </p>
+            </div>
+            <div class="flex flex-col items-center gap-3 ml-4">
+              <i
+                class="fa-solid fa-arrow-up-right text-white group-hover:text-neon-green transition"
+              ></i>
+              <div class="bg-neon-green p-2 rounded-lg text-black text-sm">
+                <i class="fa-solid fa-leaf"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- The Science Section -->
+          <div class="text-left md:pr-6 py-2">
+            <h4
+              class="text-white font-bold text-base mb-2 flex items-center justify-start"
+            >
+              <span
+                class="inline-block w-2 h-2 bg-white rounded-full mr-2"
+              ></span>
+              The Science of<br />
+              Pure Living
+            </h4>
+            <p class="text-gray-400 text-xs max-w-xs">
+              Where human biology meets advanced preventive care.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Paranest Section -->
+    <section
+      id="about"
+      class="relative min-h-[700px] w-full overflow-hidden bg-[#011105] flex items-center py-20"
+      data-aos="fade-up"
+    >
+      <!-- Improved Background Glow -->
+      <div
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-neon-green/10 blur-[180px] rounded-full"
+      ></div>
+      <div
+        class="absolute top-1/4 left-1/4 w-[450px] h-[450px] bg-neon-green/8 blur-[120px] rounded-full"
+      ></div>
+      <div
+        class="absolute bottom-1/4 right-1/4 w-[450px] h-[450px] bg-neon-green/8 blur-[120px] rounded-full"
+      ></div>
+
+      <div class="container mx-auto px-6 relative z-10">
+        <!-- Header Section - Centered -->
+        <div class="text-center max-w-4xl mx-auto">
+          <span
+            class="inline-block bg-white/5 border border-white/10 px-6 py-2 rounded-full text-neon-green text-xs font-bold tracking-[0.2em] uppercase"
+          >
+            ABOUT PARANEST
+          </span>
+
+          <h2
+            class="text-5xl md:text-7xl font-bold text-white mt-8 mb-6 leading-tight"
+          >
+            Health is a Right,<br />
+            <span class="text-white/90">Not a Privilege</span>
+          </h2>
+
+          <p
+            class="text-gray-300 text-base md:text-lg mt-6 leading-relaxed max-w-3xl mx-auto font-light"
+          >
+            At Paranest, we begin with observation, not assumption. We uncover
+            hidden toxins to create simple, clear, and practical solutions.
+          </p>
+
+          <!-- Additional Paragraph -->
+          <p
+            class="text-gray-400 text-sm md:text-base mt-6 leading-relaxed max-w-3xl mx-auto font-light"
+          >
+            We look deeper beyond the surface to see the unseen—to uncover the
+            hidden toxins that quietly affect your everyday life. By
+            transforming awareness into action, we create simple, clear, and
+            practical solutions that bring better health within everyone's
+            reach.
+          </p>
+        </div>
+
+        <!-- IMAGE + OVERLAYS -->
+        <div class="relative flex justify-center mt-16">
+          <!-- Image Container -->
+          <div
+            class="relative rounded-[40px] overflow-hidden border border-white/15 shadow-2xl w-[800px] max-w-full h-[350px]"
+          >
+            <img
+              title="img"
+              src="imgs/about_image.png"
+              class="w-full h-full object-cover opacity-95"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-[#011105]/50 via-transparent to-transparent opacity-40"
+            ></div>
+          </div>
+
+          <!-- Nature's Shield Card - Top Left -->
+          <div
+            class="absolute left-8 top-8 bg-white/5 border border-white/10 backdrop-blur-lg p-5 rounded-2xl max-w-[280px] shadow-xl"
+          >
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-3 h-3 bg-neon-green rounded-full"></div>
+              <h4 class="text-white font-bold text-base">Nature's Shield</h4>
+            </div>
+            <p class="text-gray-300 text-xs leading-relaxed">
+              Replacing harmful chemicals with natural, clinically validated
+              alternatives.
+            </p>
+          </div>
+
+          <!-- Left Arrow Point - NOVA ERA -->
+          <div
+            class="absolute left-[-10px] sm:left-[80px] md:left-[100px] lg:left-[125px] top-[350px] w-[300px]"
+          >
+            <div class="relative">
+              <!-- Arrow Line -->
+              <div
+                class="relative rotate-[180deg] w-[75px] left-[160px] top-[35px] h-[1.5px] bg-gradient-to-r from-white to-white/30 transform origin-left"
+              ></div>
+              <div
+                class="relative rotate-[270deg] w-[70px] left-[160px] top-[34px] h-[1.5px] bg-gradient-to-r from-white to-white/30 transform origin-left"
+              ></div>
+
+              <!-- Arrow Point Circle -->
+              <div class="absolute left-[150px] top-[-50px]">
+                <div class="relative">
+                  <div
+                    class="w-5 h-5 bg-white rounded-full shadow-[0_0_15px_rgba(255,255,255,0.5)]"
+                  ></div>
+                  <div
+                    class="absolute inset-[-5px] bg-white/25 rounded-full animate-ping"
+                  ></div>
+                </div>
+              </div>
+
+              <!-- Label with Subtitle -->
+              <div class="absolute top-[25px] origin-left">
+                <div class="space-y-1">
+                  <span
+                    class="block text-[13px] text-white/90 uppercase tracking-[0.15em] font-bold"
+                  >
+                    NOVA ERA
+                  </span>
+                  <span
+                    class="block text-[10px] text-white/70 font-light italic max-w-[160px]"
+                  >
+                    Pioneering a future where health is a right, not a
+                    privilege.
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Arrow Point - NATURE FOR SUSTAINABLE FUTURE -->
+          <div
+            class="absolute right-[-160px] md:right-[-165px] lg:right-[-100px] xl:right-[10px] top-[350px] w-[300px]"
+          >
+            <div class="relative">
+              <!-- Arrow Line -->
+              <div
+                class="relative right-[-75px] top-[-140px] w-[75px] h-[1.5px] bg-gradient-to-l from-white to-white/30 transform origin-right"
+              ></div>
+              <!-- Arrow Line -->
+              <div
+                class="relative right-[-10px] top-[-143px] w-[140px] h-[1.5px] bg-gradient-to-l rotate-[270deg] from-white to-white/30 transform origin-right"
+              ></div>
+
+              <!-- Arrow Point Circle -->
+              <div class="absolute top-[-150px] right-[225px]">
+                <div class="relative">
+                  <div
+                    class="w-5 h-5 bg-white rounded-full shadow-[0_0_15px_rgba(255,255,255,0.5)]"
+                  ></div>
+                  <div
+                    class="absolute inset-[-5px] bg-white/25 rounded-full animate-ping"
+                  ></div>
+                </div>
+              </div>
+
+              <!-- Label with Subtitle -->
+              <div class="absolute origin-right text-right top-[25px]">
+                <div class="space-y-1">
+                  <span
+                    class="block text-[13px] text-white/90 uppercase tracking-[0.15em] font-bold text-right"
+                  >
+                    NATURE FOR A <br />
+                    SUSTAINABLE FUTURE
+                  </span>
+                  <span
+                    class="block text-[10px] text-white/70 font-light italic max-w-[160px]"
+                  >
+                    We're dedicated to preserving the planet while enhancing
+                    everyday life.
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BOTTOM CARDS - Centered -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto md:mt-[125px] mt-[200px]"
+        >
+          <!-- Mission Card -->
+          <div
+            class="relative bg-white/5 border border-white/10 backdrop-blur-sm rounded-3xl p-6 hover:border-neon-green/30 transition-all duration-300 group mb-0 md:mb-10"
+          >
+            <div class="flex items-start gap-5">
+              <div
+                class="w-12 h-12 bg-neon-green/20 rounded-xl flex items-center justify-center text-neon-green group-hover:bg-neon-green group-hover:text-black transition-all duration-300"
+              >
+                <i class="fa-solid fa-bullseye text-lg"></i>
+              </div>
+              <div class="flex-1">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-2 h-2 bg-neon-green rounded-full"></div>
+                  <h3 class="text-white font-bold text-lg">Our Mission</h3>
+                </div>
+                <p class="text-gray-300 text-sm leading-relaxed font-light">
+                  To develop natural, clinically validated products that protect
+                  hormonal and metabolic balance—bringing science-backed
+                  wellness to everyday life.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Vision Card -->
+          <div
+            class="relative bg-white/5 border border-white/10 backdrop-blur-sm rounded-3xl p-6 hover:border-neon-green/30 transition-all duration-300 group mt-0 md:mt-10"
+          >
+            <div class="flex items-start gap-5">
+              <div
+                class="w-12 h-12 bg-neon-green/20 rounded-xl flex items-center justify-center text-neon-green group-hover:bg-neon-green group-hover:text-black transition-all duration-300"
+              >
+                <i class="fa-solid fa-eye text-lg"></i>
+              </div>
+              <div class="flex-1">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-2 h-2 bg-neon-green rounded-full"></div>
+                  <h3 class="text-white font-bold text-lg">Our Vision</h3>
+                </div>
+                <p class="text-gray-300 text-sm leading-relaxed font-light">
+                  To make preventive, EDC-free health solutions the global
+                  standard—empowering individuals and communities to live free
+                  from hidden chemical threats.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Endo-Balance Section -->
+    <section
+      id="endo-balance"
+      class="bg-transparent py-20 px-6 md:px-16 font-sans lg:mx-[100px]"
+      data-aos="fade-right"
+      data-aos-delay="100"
+    >
+      <div class="max-w-7xl mx-auto">
+        <div
+          class="flex flex-col items-center md:flex-row justify-between items-start gap-8 mb-16"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          <div class="flex flex-col gap-4">
+            <span
+              class="inline-block bg-[#0a1f0f] border border-white/10 text-white text-[10px] px-4 py-1.5 rounded-full w-fit uppercase tracking-wider font-medium"
+            >
+              Endo-Balance Hub
+            </span>
+            <h2
+              class="text-white text-4xl md:text-7xl font-bold leading-tight tracking-tight"
+            >
+              Internal<br />Balance
+            </h2>
+          </div>
+
+          <div
+            class="bg-[#05160a] border border-white/5 p-8 rounded-[35px] text-white max-w-sm w-full md:mt-12 group cursor-pointer transition-all duration-300 hover:border-white/20 hover:bg-[#081d0d] shadow-2xl relative overflow-hidden"
+          >
+            <div class="flex justify-between items-start mb-10 relative z-10">
+              <h3 class="text-2xl font-bold tracking-tight">Endo-Balance</h3>
+              <div
+                class="w-8 h-8 flex items-center justify-center rounded-full bg-transparent transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M7 17L17 7M17 7H7M17 7V17"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+            </div>
+            <p
+              class="text-gray-400 text-[14px] leading-relaxed relative z-10 font-light opacity-90 group-hover:opacity-100 transition-opacity"
+            >
+              Harmonizing your body's internal systems against invisible
+              disruptors.
+            </p>
+          </div>
+
+          <div
+            class="bg-[#05160a] border border-white/5 p-8 rounded-[35px] text-white max-w-sm w-full group cursor-pointer transition-all duration-300 hover:border-white/20 hover:bg-[#081d0d] shadow-2xl relative overflow-hidden"
+          >
+            <div class="flex justify-between items-start mb-10 relative z-10">
+              <h3 class="text-2xl font-bold tracking-tight">
+                A Movement of Care
+              </h3>
+              <div
+                class="w-8 h-8 flex items-center justify-center rounded-full bg-transparent transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M7 17L17 7M17 7H7M17 7V17"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+            </div>
+            <p
+              class="text-gray-400 text-[14px] leading-relaxed relative z-10 font-light opacity-90 group-hover:opacity-100 transition-opacity"
+            >
+              Redefining long-term wellbeing through safer, conscious choices.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="flex flex-col md:flex-row items-end gap-12"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        >
+          <div class="w-full md:w-1/2">
+            <div
+              class="rounded-[40px] overflow-hidden shadow-2xl mt-0 md:mt-[30px] border border-white/5"
+            >
+              <img
+                src="imgs/ento_balance_image.png"
+                alt="Nature"
+                class="w-full h-[320px] object-cover hover:scale-105 transition-transform duration-700"
+              />
+            </div>
+          </div>
+
+          <div
+            class="bg-[#05160a] border border-white/5 p-10 md:p-14 rounded-[45px] text-white w-full md:w-1/2 mb-0 md:mb-[30px] shadow-2xl relative"
+          >
+            <h4 class="text-2xl font-bold mb-6 leading-snug">
+              <span class="text-gray-500 font-medium italic"
+                >Invisible chemicals (EDCs)</span
+              >
+              can alter the body's natural hormonal function...
+            </h4>
+            <p
+              class="text-gray-400 text-sm md:text-base leading-relaxed font-light"
+            >
+              These substances may mimic, block, or interfere with hormones,
+              leading to chronic health challenges. By choosing safer
+              alternatives, you are protecting your future from fertility
+              challenges, metabolic imbalances, and long-term risks. Live in
+              harmony with your biology.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products (Dr. Natura) -->
+    <section
+      id="products"
+      class="bg-transparent py-24 px-6 md:px-16 font-sans lg:px-[100px]"
+      data-aos="zoom-in"
+      data-aos-delay="100"
+    >
+      <div class="max-w-7xl mx-auto">
+        <div class="mb-32">
+          <div class="flex flex-col gap-6 items-center">
+            <div
+              class="inline-block bg-[#05160a] text-white text-[10px] px-5 py-2 rounded-full w-fit uppercase tracking-widest font-semibold"
+            >
+              Endo-Balance Hub
+            </div>
+            <h2
+              class="text-white text-center text-4xl md:text-6xl font-bold leading-[0.9] tracking-tighter"
+            >
+              Dr. Natura – Purity Without <br />
+              Compromise
+            </h2>
+            <span class="d-block text-1xl text-white"
+              >Daily solutions, strictly EDC-Free.</span
+            >
+          </div>
+        </div>
+
+        <div
+          class="flex flex-wrap justify-center lg:justify-start gap-y-32 gap-x-8"
+        >
+          <!-- card 1 -->
+          <div
+            class="relative bg-[#05160a] p-8 pt-24 rounded-[30px] flex-1 min-w-[300px] max-w-[380px] border border-white/10 group transition-all duration-500 hover:border-white/30"
+          >
+            <div
+              class="absolute w-[250px] h-[250px] md:w-[350px] md:h-[350px] left-[25px] top-[-150px] md:top-[-225px] rotate-[-16deg] -translate-x-1/2 w-48 h-48 flex items-center justify-center"
+            >
+              <span
+                class="absolute w-60 h-60 bg-[#4ade80]/20 blur-[40px] rounded-full group-hover:bg-[#4ade80]/30 transition-all"
+              ></span>
+
+              <img
+                src="imgs/items/9g_21.png"
+                alt="Product"
+                class="relative z-10 object-contain drop-shadow-2xl group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+
+            <div class="text-left mt-4">
+              <h3 class="text-white text-2xl font-bold mb-4">Calathea plant</h3>
+              <p class="text-gray-200 text-sm leading-relaxed font-light">
+                Lorem ipsum dolor sit amet,consectetur adipiscing elit...
+              </p>
+            </div>
+          </div>
+          <!-- card 2 -->
+          <div
+            class="relative bg-[#05160a] p-8 pt-24 rounded-[30px] flex-1 min-w-[300px] max-w-[380px] border border-white/10 group transition-all duration-500 hover:border-white/30"
+          >
+            <div
+              class="absolute w-[125px] h-[125px] md:w-[175px] md:h-[175px] left-[25px] top-[-80px] md:top-[-120px] rotate-[-16deg] -translate-x-1/2 w-48 h-48 flex items-center justify-center"
+            >
+              <span
+                class="absolute w-60 h-60 bg-[#4ade80]/20 blur-[40px] rounded-full group-hover:bg-[#4ade80]/30 transition-all"
+              ></span>
+
+              <img
+                src="imgs/items/tropica-bag.png"
+                alt="Product"
+                class="relative z-10 object-contain drop-shadow-2xl group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+
+            <div class="text-left mt-4">
+              <h3 class="text-white text-2xl font-bold mb-4">Calathea plant</h3>
+              <p class="text-gray-200 text-sm leading-relaxed font-light">
+                Lorem ipsum dolor sit amet,consectetur adipiscing elit...
+              </p>
+            </div>
+          </div>
+          <!-- card 3 -->
+          <div
+            class="relative bg-[#05160a] p-8 pt-24 rounded-[30px] flex-1 min-w-[300px] max-w-[380px] border border-white/10 group transition-all duration-500 hover:border-white/30"
+          >
+            <div
+              class="absolute w-[175px] h-[175px] md:w-[250px] md:h-[250px] left-[25px] top-[-100px] md:top-[-175px] rotate-[-16deg] -translate-x-1/2 w-48 h-48 flex items-center justify-center"
+            >
+              <span
+                class="absolute w-60 h-60 bg-[#4ade80]/20 blur-[40px] rounded-full group-hover:bg-[#4ade80]/30 transition-all"
+              ></span>
+
+              <img
+                src="imgs/items/Untitled-12.png"
+                alt="Product"
+                class="relative z-10 object-contain drop-shadow-2xl group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+
+            <div class="text-left mt-4">
+              <h3 class="text-white text-2xl font-bold mb-4">Calathea plant</h3>
+              <p class="text-gray-200 text-sm leading-relaxed font-light">
+                Lorem ipsum dolor sit amet,consectetur adipiscing elit...
+              </p>
+            </div>
+          </div>
+          <!-- card 4 -->
+          <div
+            class="relative bg-[#05160a] p-8 pt-24 rounded-[30px] flex-1 min-w-[300px] max-w-[380px] border border-white/10 group transition-all duration-500 hover:border-white/30"
+          >
+            <div
+              class="absolute w-[175px] h-[175px] md:w-[250px] md:h-[250px] left-[25px] top-[-100px] md:top-[-175px] rotate-[-16deg] -translate-x-1/2 w-48 h-48 flex items-center justify-center"
+            >
+              <span
+                class="absolute w-60 h-60 bg-[#4ade80]/20 blur-[40px] rounded-full group-hover:bg-[#4ade80]/30 transition-all"
+              ></span>
+
+              <img
+                src="imgs/items/Untitled-13.png"
+                alt="Product"
+                class="relative z-10 object-contain drop-shadow-2xl group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+
+            <div class="text-left mt-4">
+              <h3 class="text-white text-2xl font-bold mb-4">Calathea plant</h3>
+              <p class="text-gray-200 text-sm leading-relaxed font-light">
+                Lorem ipsum dolor sit amet,consectetur adipiscing elit...
+              </p>
+            </div>
+          </div>
+          <!-- card 5 -->
+          <div
+            class="relative bg-[#05160a] p-8 pt-24 rounded-[30px] flex-1 min-w-[300px] max-w-[380px] border border-white/10 group transition-all duration-500 hover:border-white/30"
+          >
+            <div
+              class="absolute w-[175px] h-[175px] md:w-[250px] md:h-[250px] left-[25px] top-[-100px] md:top-[-175px] rotate-[-16deg] -translate-x-1/2 w-48 h-48 flex items-center justify-center"
+            >
+              <span
+                class="absolute w-60 h-60 bg-[#4ade80]/20 blur-[40px] rounded-full group-hover:bg-[#4ade80]/30 transition-all"
+              ></span>
+
+              <img
+                src="imgs/items/Untitled-14.png"
+                alt="Product"
+                class="relative z-10 object-contain drop-shadow-2xl group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+
+            <div class="text-left mt-4">
+              <h3 class="text-white text-2xl font-bold mb-4">Calathea plant</h3>
+              <p class="text-gray-200 text-sm leading-relaxed font-light">
+                Lorem ipsum dolor sit amet,consectetur adipiscing elit...
+              </p>
+            </div>
+          </div>
+          <!-- card 6 -->
+          <div
+            class="relative bg-[#05160a] p-8 pt-24 rounded-[30px] flex-1 min-w-[300px] max-w-[380px] border border-white/10 group transition-all duration-500 hover:border-white/30"
+          >
+            <div
+              class="absolute w-[175px] h-[175px] md:w-[250px] md:h-[250px] left-[25px] top-[-100px] md:top-[-175px] rotate-[-16deg] -translate-x-1/2 w-48 h-48 flex items-center justify-center"
+            >
+              <span
+                class="absolute w-60 h-60 bg-[#4ade80]/20 blur-[40px] rounded-full group-hover:bg-[#4ade80]/30 transition-all"
+              ></span>
+
+              <img
+                src="imgs/items/Untitled-13.png"
+                alt="Product"
+                class="relative z-10 object-contain drop-shadow-2xl group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+
+            <div class="text-left mt-4">
+              <h3 class="text-white text-2xl font-bold mb-4">Calathea plant</h3>
+              <p class="text-gray-200 text-sm leading-relaxed font-light">
+                Lorem ipsum dolor sit amet,consectetur adipiscing elit...
+              </p>
+            </div>
+          </div>
+          <!-- card 7 -->
+          <div
+            class="relative bg-[#05160a] p-8 pt-24 rounded-[30px] flex-1 min-w-[300px] max-w-[380px] border border-white/10 group transition-all duration-500 hover:border-white/30"
+          >
+            <div
+              class="absolute w-[175px] h-[175px] md:w-[250px] md:h-[250px] left-[25px] top-[-100px] md:top-[-175px] rotate-[-16deg] -translate-x-1/2 w-48 h-48 flex items-center justify-center"
+            >
+              <span
+                class="absolute w-60 h-60 bg-[#4ade80]/20 blur-[40px] rounded-full group-hover:bg-[#4ade80]/30 transition-all"
+              ></span>
+
+              <img
+                src="imgs/items/Untitled-15.png"
+                alt="Product"
+                class="relative z-10 object-contain drop-shadow-2xl group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+
+            <div class="text-left mt-4">
+              <h3 class="text-white text-2xl font-bold mb-4">Calathea plant</h3>
+              <p class="text-gray-200 text-sm leading-relaxed font-light">
+                Lorem ipsum dolor sit amet,consectetur adipiscing elit...
+              </p>
+            </div>
+          </div>
+          <!-- card 8 -->
+          <div
+            class="relative bg-[#05160a] p-8 pt-24 rounded-[30px] flex-1 min-w-[300px] max-w-[380px] border border-white/10 group transition-all duration-500 hover:border-white/30"
+          >
+            <div
+              class="absolute w-[160px] h-[160px] md:w-[200px] md:h-[200px] left-[25px] top-[-100px] md:top-[-150px] rotate-[-16deg] -translate-x-1/2 w-48 h-48 flex items-center justify-center"
+            >
+              <span
+                class="absolute w-60 h-60 bg-[#4ade80]/20 blur-[40px] rounded-full group-hover:bg-[#4ade80]/30 transition-all"
+              ></span>
+
+              <img
+                src="imgs/items/best-care.png"
+                alt="Product"
+                class="relative z-10 object-contain drop-shadow-2xl group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+
+            <div class="text-left mt-4">
+              <h3 class="text-white text-2xl font-bold mb-4">Calathea plant</h3>
+              <p class="text-gray-200 text-sm leading-relaxed font-light">
+                Lorem ipsum dolor sit amet,consectetur adipiscing elit...
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Team -->
+    <section
+      id="team"
+      class="bg-transparent py-24 px-6 md:px-16 font-sans lg:px-[100px]"
+      data-aos="flip-left"
+      data-aos-delay="100"
+    >
+      <div class="max-w-7xl mx-auto">
+        <div class="mb-32">
+          <div class="flex flex-col gap-6 items-center">
+            <div
+              class="inline-block bg-[#05160a] text-white text-[10px] px-5 py-2 rounded-full w-fit uppercase tracking-widest font-semibold"
+            >
+              Our Team
+            </div>
+            <h2
+              class="text-white text-center text-4xl md:text-6xl font-bold leading-[0.9] tracking-tighter"
+            >
+              United for Prevention
+            </h2>
+            <span class="d-block text-1xl text-white text-center"
+              >The Paranest leadership team unites professionals in preventive
+              medicine, health innovation, and international business. <br />
+              Together, they lead the mission toward safer and more sustainable
+              healthcare.</span
+            >
+          </div>
+        </div>
+
+        <div
+          class="flex flex-wrap justify-center lg:justify-start gap-y-32 gap-x-8"
+        >
+          <!-- card 1 -->
+          <div
+            class="relative bg-[#05160a] p-8 pt-24 rounded-[30px] flex-1 min-w-[300px] max-w-[380px] border border-white/10 group transition-all duration-500 hover:border-white/30"
+          >
+            <div
+              class="absolute w-[175px] h-[175px] left-[50%] top-[-100px] -translate-x-1/2 flex items-center justify-center"
+            >
+              <span
+                class="absolute w-60 h-60 bg-[#4ade80]/20 blur-[40px] rounded-full group-hover:bg-[#4ade80]/30 transition-all"
+              ></span>
+
+              <img
+                src="imgs/doct.jpg"
+                alt="Product"
+                class="relative rounded-[50%] z-10 object-contain drop-shadow-2xl group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+
+            <div class="text-left mt-4 text-center">
+              <h3 class="text-white text-2xl font-bold mb-4">
+                Dr. Nidal Al-Majdoub
+              </h3>
+              <p class="text-gray-200 text-sm leading-relaxed font-light">
+                Head of Scientific Research & Clinical Validation.
+              </p>
+            </div>
+          </div>
+          <!-- card 2 -->
+          <div
+            class="relative bg-[#05160a] p-8 pt-24 rounded-[30px] flex-1 min-w-[300px] max-w-[380px] border border-white/10 group transition-all duration-500 hover:border-white/30"
+          >
+            <div
+              class="absolute w-[175px] h-[175px] left-[50%] top-[-100px] -translate-x-1/2 flex items-center justify-center"
+            >
+              <span
+                class="absolute w-60 h-60 bg-[#4ade80]/20 blur-[40px] rounded-full group-hover:bg-[#4ade80]/30 transition-all"
+              ></span>
+
+              <img
+                src="imgs/doct.jpg"
+                alt="Product"
+                class="relative rounded-[50%] z-10 object-contain drop-shadow-2xl group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+
+            <div class="text-left mt-4 text-center">
+              <h3 class="text-white text-2xl font-bold mb-4">Dr. Souad</h3>
+              <p class="text-gray-200 text-sm leading-relaxed font-light">
+                Regional Project Manager (MENA) – Strategic Partnerships &
+                Awareness.
+              </p>
+            </div>
+          </div>
+          <!-- card 3 -->
+          <div
+            class="relative bg-[#05160a] p-8 pt-24 rounded-[30px] flex-1 min-w-[300px] max-w-[380px] border border-white/10 group transition-all duration-500 hover:border-white/30"
+          >
+            <div
+              class="absolute w-[175px] h-[175px] left-[50%] top-[-100px] -translate-x-1/2 flex items-center justify-center"
+            >
+              <span
+                class="absolute w-60 h-60 bg-[#4ade80]/20 blur-[40px] rounded-full group-hover:bg-[#4ade80]/30 transition-all"
+              ></span>
+
+              <img
+                src="imgs/doct.jpg"
+                alt="Product"
+                class="relative rounded-[50%] z-10 object-contain drop-shadow-2xl group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+
+            <div class="text-left mt-4 text-center">
+              <h3 class="text-white text-2xl font-bold mb-4">Emad Hamed</h3>
+              <p class="text-gray-200 text-sm leading-relaxed font-light">
+                R&D, International Compliance & Quality Assurance.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Partners -->
+    <section
+      id="partners"
+      class="bg-transparent py-24 px-6 md:px-16 font-sans lg:px-[100px]"
+      data-aos="fade-up"
+      data-aos-delay="100"
+    >
+      <div class="max-w-7xl mx-auto">
+        <div class="mb-32">
+          <div class="flex flex-col gap-6 items-center">
+            <div
+              class="inline-block bg-[#05160a] text-white text-[10px] px-5 py-2 rounded-full w-fit uppercase tracking-widest font-semibold"
+            >
+              Our Team
+            </div>
+            <h2
+              class="text-white text-center text-4xl md:text-6xl font-bold leading-[0.9] tracking-tighter"
+            >
+              United for Prevention
+            </h2>
+            <span class="d-block text-1xl text-white text-center"
+              >The Paranest leadership team unites professionals in preventive
+              medicine, health innovation, and international business. <br />
+              Together, they lead the mission toward safer and more sustainable
+              healthcare.</span
+            >
+          </div>
+        </div>
+
+        <div
+          class="flex flex-wrap justify-center gap-x-12 gap-y-16 md:gap-y-24 items-center bg-[#072411] p-12 md:p-20 rounded-[2rem]"
+        >
+          <div
+            class="flex flex-col items-center justify-center w-full sm:w-[calc(50%-2rem)] lg:w-[calc(25%-3rem)]"
+          >
+            <img
+              src="imgs/logos/1.png"
+              alt="LDC Louis Dreyfus Company"
+              class="max-h-16 w-auto object-contain filter brightness-0 invert opacity-90 hover:opacity-100 transition-opacity"
+            />
+          </div>
+
+          <div
+            class="flex flex-col items-center justify-center w-full sm:w-[calc(50%-2rem)] lg:w-[calc(25%-3rem)]"
+          >
+            <img
+              src="imgs/logos/2.png"
+              alt="Rioquímica"
+              class="max-h-16 w-auto object-contain filter brightness-0 invert opacity-90 hover:opacity-100 transition-opacity"
+            />
+          </div>
+
+          <div
+            class="flex flex-col items-center justify-center w-full sm:w-[calc(50%-2rem)] lg:w-[calc(25%-3rem)]"
+          >
+            <img
+              src="imgs/logos/3.png"
+              alt="CALO"
+              class="max-h-16 w-auto object-contain filter brightness-0 invert opacity-90 hover:opacity-100 transition-opacity"
+            />
+          </div>
+
+          <div
+            class="flex flex-col items-center justify-center w-full sm:w-[calc(50%-2rem)] lg:w-[calc(25%-3rem)]"
+          >
+            <img
+              src="imgs/logos/4.png"
+              alt="CACIQUE"
+              class="max-h-20 w-auto object-contain filter brightness-0 invert opacity-90 hover:opacity-100 transition-opacity"
+            />
+          </div>
+
+          <div
+            class="flex flex-col items-center justify-center w-full sm:w-[calc(50%-2rem)] lg:w-[calc(25%-3rem)]"
+          >
+            <img
+              src="imgs/logos/5.png"
+              alt="ALL TEST"
+              class="max-h-16 w-auto object-contain filter brightness-0 invert opacity-90 hover:opacity-100 transition-opacity"
+            />
+          </div>
+
+          <div
+            class="flex flex-col items-center justify-center w-full sm:w-[calc(50%-2rem)] lg:w-[calc(25%-3rem)]"
+          >
+            <img
+              src="imgs/logos/5.png"
+              alt="SCENTA"
+              class="max-h-12 w-auto object-contain filter brightness-0 invert opacity-90 hover:opacity-100 transition-opacity"
+            />
+          </div>
+
+          <div
+            class="flex flex-col items-center justify-center w-full sm:w-[calc(50%-2rem)] lg:w-[calc(25%-3rem)]"
+          >
+            <img
+              src="imgs/logos/7.png"
+              alt="MOELLHAUSEN"
+              class="max-h-16 w-auto object-contain filter brightness-0 invert opacity-90 hover:opacity-100 transition-opacity"
+            />
+          </div>
+
+          <div
+            class="flex flex-col items-center justify-center w-full sm:w-[calc(50%-2rem)] lg:w-[calc(25%-3rem)]"
+          >
+            <img
+              src="imgs/logos/8.png"
+              alt="Native"
+              class="max-h-16 w-auto object-contain filter brightness-0 invert opacity-90 hover:opacity-100 transition-opacity"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- contact us -->
+    <div
+      id="contact"
+      class="py-12 px-4 md:px-8"
+      data-aos="fade-right"
+      data-aos-delay="100"
+    >
+      <section
+        class="max-w-7xl mx-auto min-h-[650px] bg-cover bg-center rounded-[3rem] overflow-hidden relative flex items-center p-6 md:p-16"
+        style="background-image: url('imgs/contact-us.jpg')"
+      >
+        <div
+          class="absolute inset-0 z-0"
+          style="background-color: rgba(0, 0, 0, 0.35)"
+          data-aos-delay="200"
+        ></div>
+
+        <div class="relative z-10 w-full" data-aos-delay="300">
+          <div class="flex flex-col lg:flex-row gap-10 items-stretch">
+            <div
+              class="flex-1 bg-white/5 backdrop-blur-md border border-white/10 rounded-[2.5rem] p-10 flex flex-col justify-between"
+            >
+              <div>
+                <span
+                  class="inline-block border border-white/20 text-white text-[10px] px-5 py-2 rounded-full uppercase tracking-[0.2em] font-semibold mb-12"
+                  data-aos="fade-up"
+                >
+                  Our Team
+                </span>
+                <h2
+                  class="text-white text-4xl md:text-6xl font-bold leading-[1.1] mb-6"
+                >
+                  Become Part of the <br />
+                  Movement
+                </h2>
+                <p
+                  class="text-white/80 text-lg md:text-xl max-w-md leading-relaxed"
+                >
+                  Are you ready to reshape your health reality? Let's talk about
+                  the future. Let's start here.
+                </p>
+              </div>
+
+              <div class="flex gap-4 mt-12">
+                <a
+                  href="#"
+                  class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all"
+                >
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all"
+                >
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all"
+                >
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="flex flex-col gap-4 w-full lg:w-[420px]">
+              <div
+                class="bg-white/5 backdrop-blur-lg border border-white/10 rounded-[1.8rem] p-8 relative group transition-all hover:bg-white/10"
+              >
+                <div class="flex justify-between items-start">
+                  <h3 class="text-white text-xl font-medium">Call Us</h3>
+                  <i
+                    class="fas fa-arrow-up-right text-white/40 group-hover:text-white transition-all transform group-hover:translate-x-1 group-hover:-translate-y-1"
+                  ></i>
+                </div>
+                <div class="mt-4 text-white/60 text-sm space-y-1">
+                  <p>+55 41 99204 0090</p>
+                  <p>+966 55 619 3493</p>
+                </div>
+                <div
+                  class="absolute bottom-6 right-6 bg-[#2cf47d] w-11 h-11 flex items-center justify-center rounded-xl"
+                >
+                  <i class="fas fa-phone text-black text-lg"></i>
+                </div>
+              </div>
+
+              <div
+                class="bg-white/5 backdrop-blur-lg border border-white/10 rounded-[1.8rem] p-8 relative group transition-all hover:bg-white/10"
+              >
+                <div class="flex justify-between items-start">
+                  <h3 class="text-white text-xl font-medium">Location</h3>
+                  <i
+                    class="fas fa-arrow-up-right text-white/40 group-hover:text-white transition-all transform group-hover:translate-x-1 group-hover:-translate-y-1"
+                  ></i>
+                </div>
+                <div class="mt-4 text-white/60 text-sm leading-relaxed">
+                  <p>Head Office: Curitiba, Brazil</p>
+                  <p>Regional Office: Riyadh, Saudi Arabia</p>
+                </div>
+                <div
+                  class="absolute bottom-6 right-6 bg-[#2cf47d] w-11 h-11 flex items-center justify-center rounded-xl"
+                >
+                  <i class="fas fa-location-dot text-black text-lg"></i>
+                </div>
+              </div>
+
+              <div
+                class="bg-white/5 backdrop-blur-lg border border-white/10 rounded-[1.8rem] p-8 relative group transition-all hover:bg-white/10"
+              >
+                <div class="flex justify-between items-start">
+                  <h3 class="text-white text-xl font-medium">Email Us</h3>
+                  <i
+                    class="fas fa-arrow-up-right text-white/40 group-hover:text-white transition-all transform group-hover:translate-x-1 group-hover:-translate-y-1"
+                  ></i>
+                </div>
+                <div class="mt-8 text-white/60 text-sm">
+                  <p>info@paranestgroup.com</p>
+                </div>
+                <div
+                  class="absolute bottom-6 right-6 bg-[#2cf47d] w-11 h-11 flex items-center justify-center rounded-xl"
+                >
+                  <i class="fas fa-envelope text-black text-lg"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- footer -->
+    <footer class="bg-[#072411] py-12 px-6 md:px-16 lg:px-[100px] mt-[100px]">
+      <div class="max-w-7xl mx-auto">
+        <div
+          class="flex flex-col lg:flex-row justify-between items-center gap-10 pb-12 border-b border-gray-100"
+        >
+          <a
+            href="#hero"
+            class="flex flex-col gap-[10px] items-center lg:items-start"
+          >
+            <img src="imgs/logo.png" alt="" />
+            <span
+              class="text-[10px] tracking-[0.3em] text-gray-400 uppercase font-medium"
+              >International</span
+            >
+          </a>
+
+          <nav>
+            <ul class="flex flex-wrap justify-center gap-x-8 gap-y-4">
+              <li>
+                <a
+                  href="#about"
+                  class="text-[#2cf47d] font-medium hover:opacity-70 transition-opacity"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#endo-balance"
+                  class="text-[#2cf47d] font-medium hover:opacity-70 transition-opacity"
+                  >Endo-Balance Hub</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#products"
+                  class="text-[#2cf47d] font-medium hover:opacity-70 transition-opacity"
+                  >Products</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#team"
+                  class="text-[#2cf47d] font-medium hover:opacity-70 transition-opacity"
+                  >Team</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#partners"
+                  class="text-[#2cf47d] font-medium hover:opacity-70 transition-opacity"
+                  >Partners</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#contact"
+                  class="text-[#2cf47d] font-medium hover:opacity-70 transition-opacity"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <div
+          class="mt-10 flex flex-col md:flex-row justify-between items-center gap-6"
+        >
+          <p class="text-gray-400 text-sm">
+            © <span id="current-year"></span> Paranest International. All rights
+            reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+      const menuBtn = document.getElementById("mobile-menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const icon = menuBtn.querySelector("i");
+
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+
+        if (mobileMenu.classList.contains("hidden")) {
+          icon.classList.remove("fa-xmark");
+          icon.classList.add("fa-bars");
+        } else {
+          icon.classList.remove("fa-bars");
+          icon.classList.add("fa-xmark");
+        }
+      });
+
+      // الحصول على السنة الحالية ووضعها في العنصر المحدد
+      document.getElementById("current-year").textContent =
+        new Date().getFullYear();
+
+      document.querySelectorAll("#mobile-menu a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+          icon.classList.remove("fa-xmark");
+          icon.classList.add("fa-bars");
+        });
+      });
+    </script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100,
+        easing: "ease-out-cubic",
+      });
+    </script>
+  </body>
+</html>
